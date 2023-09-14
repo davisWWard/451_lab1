@@ -16,8 +16,19 @@ int main()
 	
 	GPIOA->ODR |= GPIO_ODR_ODR5;
 	
+	int i = 0;
+	
 	while (1)
 	{
-		
+		if (i == 1000000)
+		{
+			GPIOA->BSRR |= GPIO_BSRR_BR5;
+		}
+		if (i == 2000000)
+		{
+			GPIOA->BSRR |= GPIO_BSRR_BS5;
+			i = 0;
+		}
+		i++;
 	}
 }
